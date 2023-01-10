@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{baumgardner2014ice}
+Darrel Baumgardner, Roy Newton, Martin Gallagher, Andreas Petzold,
+  Forschunsgzentrum Juelich, Angela Dean, Konradin Weber, and Andreas Vogel.
+\newblock Ice or ash?
+\newblock 2014.
+
+\bibitem{illingworth2007cloudnet}
+AJ~Illingworth, RJ~Hogan, EJ~O'connor, Dominique Bouniol, ME~Brooks, Julien
+  Delano{\"e}, DP~Donovan, JD~Eastment, N~Gaussiat, JWF Goddard, et~al.
+\newblock Cloudnet: Continuous evaluation of cloud profiles in seven
+  operational models using ground-based observations.
+\newblock {\em Bulletin of the American Meteorological Society},
+  88(6):883--898, 2007.
+
+\bibitem{thomson2014compact}
+David Thomson.
+\newblock A compact, backscattering deplolarization cloud spectrometer for ice
+  and water discrimination.
+\newblock Technical report, Droplet Measurement Technologies, 2014.
+
+\end{thebibliography}
