@@ -98,20 +98,20 @@
       \begin{block}{Introduction}
         Low-altitude clouds exert a major influence on the radiative energy budget in the Arctic region. Studies have shown that Arctic clouds contribute to warming of the surface through long-wave cloud radiative effect, except during the peak of summer when the cooling effect due to their high albedo dominates. Although low-altitude clouds remain one of the largest uncertainties in modelling the Arctic climate, our understanding of the thermodynamic processes governing these clouds remains incomplete. In-situ observations of cloud properties are scarce, and uncertainties involved in remote sensing observations make it difficult to precisely determine the cloud properties and the thermodynamic state of the atmosphere.
 
-        To this end, we make a comparison between an in-situ observation of the low-altitude clouds using a cloud particle detector, and measurements taken from a ground-based remote sensing site (retrieved from CloudNet). We examine the measurements taken from the Backscatter Cloud-probe with Polarization Detection (BCPD) mounted on a tethered balloon to obtain the cloud properties such as liquid water content (LWC).
+        To this end, we make a comparison between an in-situ observation of the low-altitude clouds using a cloud particle detector, and measurements taken from a ground-based remote sensing site (retrieved from CloudNet). We examine the measurements taken from the Backscatter Cloud-probe with Polarization Detection (BCPD) attached to a tethered balloon to obtain the cloud properties such as liquid water content (LWC).
       \end{block}
 
       \begin{block}{Methods}
-        On October 1st, 2019m near Ny-\r{A}lesund, Svalbard, a tethered balloon was deployed from the ground with the Back-scatter Cloud Probe \cite{baumgardner2014ice, thomson2014compact} in order to make a set of observations on the thermodynamic and microphysical properties of low-altitude mixed-phase clouds (\Cref{fig:01}).
+        On October 1st, 2019, near Ny-\r{A}lesund, Svalbard, a tethered balloon was deployed from the ground with the Back-scatter Cloud Probe \cite{baumgardner2014ice, thomson2014compact} in order to make a set of observations on the thermodynamic and microphysical properties of low-altitude mixed-phase clouds (\Cref{fig:01}).
 
         \begin{figure}
           \centering
           \includegraphics[width=0.8\colwidth]{img/balloon.png}
-          \caption{The photo showing Backscatter Cloud Probe (BCPD) mounted on a tethered balloon, deployed on October 1st, 2019 near Ny-\r{A}lesund, Svalbard.}
+          \caption{The photo showing Backscatter Cloud Probe (BCPD) attached to a tethered balloon, deployed on October 1st, 2019 near Ny-\r{A}lesund, Svalbard.}
           \label{fig:01}
         \end{figure}
 
-        The operation began at 18:00 UTC on October 1st, 2019, and lasted roughly two hours. The Back-scatter Cloud Probe (BCPD) measured a number of thermodynamic and microphysical properties of the advecting clouds at around 900 m above ground, with slightly varying altitude over time due to wind. The vertical trajectory of the instrument (and of the tethered balloon) can be seen in \Cref{fig:02} (black line). The sampled properties were processed into 10-second averages.
+        The operation began at 18:00 UTC on October 1st, 2019, and lasted roughly two hours. The Back-scatter Cloud Probe (BCPD) measured a number of thermodynamic and microphysical properties of the advecting clouds at around 900 m above ground, with slightly varying altitude due to wind. The vertical trajectory of the instrument (and of the tethered balloon) can be seen in \Cref{fig:02} (black line).
       \end{block}
 
     \end{column}
@@ -125,7 +125,7 @@
         \begin{figure}
           \centering
           \includegraphics[width=0.95\colwidth]{img/ts_alt.png}
-          \caption{The trajectory of the tethered balloon, compared to the liquid water content (LWC) in [g/m$^3$], reported by Cloudnet \cite{illingworth2007cloudnet}. The altitude recorded by the instrument on the tethered balloon is shown in black dashed line. The remotely-sensed LWC values are displayed on a coloured map, with white regions indicating gaps in the observation.}
+          \caption{The trajectory of the tethered balloon, compared to the liquid water content (LWC) in [g/m$^3$], reported by Cloudnet \cite{illingworth2007cloudnet}. The altitude recorded by the instrument on the tethered balloon is shown in black dashed line. The LWC values from the ground-based observation are displayed on a coloured map, with white regions indicating missing data.}
           \label{fig:02}
         \end{figure}
 
@@ -133,7 +133,9 @@
 
       \begin{exampleblock}{Data Retrieval}
 
-        We retrieved the liquid-water content (LWC) from ground-based remote sensing sites (Cloudnet) \cite{illingworth2007cloudnet}. The Cloudnet project provides vertical profiles of a number of cloud properties, which is useful for our study. The vertical profile of LWC is mapped in \Cref{fig:02}. By tracking the varying altitude of the tethered balloon and mapping the corresponding LWC values, we could compare the liquid-water content measured by BCPD against ground-based observations (\Cref{fig:03}). Although the cloudiness of the surrounding air remained fairly consistent (\emph{cf.} \Cref{fig:03}), the time-series of LWC reported by Cloudnet contains missing data, which is likely because clouds were not detected by the cloud radar at Ny-\r{A}lesund station \cite{illingworth2007cloudnet}. It is also possible that the presence of ice increased the uncertainty in the attenuation of ice reflectivity, but more work will be needed to estimate the properties of ice particles in the observed cloud.
+        We retrieved the liquid-water content (LWC) from ground-based remote sensing sites (Cloudnet) \cite{illingworth2007cloudnet}. The Cloudnet project provides vertical profiles of a number of cloud properties, including LWC. The vertical profile of LWC is mapped in \Cref{fig:02}. By tracking the varying altitude of the tethered balloon and mapping the corresponding LWC values, we could compare the liquid-water content measured by BCPD against the  ground-based observation (\Cref{fig:03}). Although the cloudiness of the surrounding air remained fairly consistent, the time-series of LWC reported by Cloudnet contains missing data, which is likely because clouds were not detected by the cloud radar at Ny-\r{A}lesund station \cite{illingworth2007cloudnet}. It is also possible that the presence of ice increased the uncertainty in the attenuation of ice reflectivity, but more work will be needed to estimate the properties of ice particles in the observed cloud.
+
+        Since the BCPD was originally developed to be mounted on instrumented aircrafts, the assumptions made in processing the back-scattered signals into cloud properties (mainly LWC in this study) do not hold well with the measurements taken with the tethered balloon, mainly because the speed of the air passing through the sensor tends to be much slower on a tethered balloon. For this reason, LWC values were re-calculated by explicitly diagnosing the effect speed of the passing air. The 10-second measurements of LWC from BCPD (blue dots in \Cref{fig:03}) were further examined using Gaussian Process (GP) regression \cite{Rasmussen:2006vz}, which is a robust machine learning method that can estimate the underlying behaviour in the presence of uncertainties. It can also be used to estimate the confidence bound of the posterior distribution given noisy data, as shown in \Cref{fig:03}.
 
       \end{exampleblock}
 
@@ -148,14 +150,16 @@
         \begin{figure}
           \centering
           \includegraphics[width=0.95\colwidth]{img/ts_gp.png}
-          \caption{The time-series of liquid water content (LWC) [g/m$^3$] measured by BCPD on the tethered balloon (blue), and reported by Cloudnet \cite{illingworth2007cloudnet}. The time-series of LWC }
+          \caption{ The time-series of liquid water content (LWC) [g/m$^3$] measured by BCPD on the tethered balloon (blue), and reported by Cloudnet \cite{illingworth2007cloudnet} (orange), as well as the mean posterior distribution from the Gaussian Process regression (black). The shaded region represents the 95\% confidence bounds based on the posterior distribution. }
           \label{fig:03}
         \end{figure}
 
       \end{alertblock}
 
       \begin{block}{Remarks}
+        The liquid water content (LWC) of low-altitude arctic clouds were measured by Back-scatter Cloud Probe (BCPD) \cite{baumgardner2014ice, thomson2014compact} attached to a tethered balloon near Ny-\r{A}lesund, Svalbard. We compare these measurements to corresponding ground-based observations from Cloudnet \cite{illingworth2007cloudnet}, and confirm that the re-calibrated time-series data from BCPD are in good agreement with those from Cloudnet.
 
+        A number of other cloud properties have also been measured during the tethered balloon experiment, such as cloud number concentration (NC), particle size distribution and polarization ratio. These observations will be used to further examine the properties of low-altitude arctic clouds, which will help improve our understanding of microphysical properties of arctic clouds. Having high-resolution measurements of cloud properties, especially the particle size distribution, will also be useful in examining the accuracy of current remote sensing operations.
       \end{block}
 
       \begin{block}{References}
